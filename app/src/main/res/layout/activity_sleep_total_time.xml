@@ -216,7 +216,7 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="Começar Viagem"/>
+                    android:text="Continuar"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

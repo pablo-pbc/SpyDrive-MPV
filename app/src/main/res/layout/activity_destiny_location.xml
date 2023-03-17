@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <!-- Header Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/miniLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/minilogo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textSize="24dp"
+                android:text="SpyDrive"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#90000000"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:letterSpacing="0.05"
+                android:text="Driving safe everywhere" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Body Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="69dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="28dp"
+            android:text="Vamos começar?"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:text="Nos informe seu destino!"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:padding="15dp"
+            android:background="@drawable/rounded_input_time"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/locationGoal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="time"
+                android:textAlignment="viewStart"
+                android:padding="10dp"
+                android:textSize="22dp"
+                android:background="@drawable/rounded_focus_input"
+                android:hint="Ex.: Rua esmeralda, 245" />
+            </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/btnNextComecarViagem"
+            android:layout_width="218dp"
+            android:layout_height="38dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/keep_button_rounded">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:letterSpacing="0.05"
+                android:textColor="#CDCDCD"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="Começar viagem"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_arrow_right_alt_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnBackComecarViagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:rotationY="180"
+                app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:letterSpacing="0.05"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingRight="5dp"
+                android:text="Voltar"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
