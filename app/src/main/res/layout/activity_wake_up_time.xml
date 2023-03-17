@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="14dp"
-            android:text="Nos informe a hora que você foi dormir!"/>
+            android:text="Nos informe a hora que você acordou!"/>
 
         <LinearLayout
             android:layout_width="360dp"
@@ -113,7 +113,7 @@
 
 
                         <EditText
-                            android:id="@+id/inputDormiuHr"
+                            android:id="@+id/inputAcordouHr"
                             android:layout_width="96dp"
                             android:layout_height="80dp"
                             android:inputType="time"
@@ -149,7 +149,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/inputDormiuMin"
+                            android:id="@+id/inputAcordouMin"
                             android:layout_width="96dp"
                             android:layout_height="80dp"
                             android:inputType="time"
@@ -217,7 +217,7 @@
                     app:srcCompat="@drawable/relogio" />
 
                 <TextView
-                    android:id="@+id/btnCancelDormiu"
+                    android:id="@+id/btnCancelAcordou"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
@@ -236,10 +236,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/btnNextDormiu"
+                android:id="@+id/btnNextAcordou"
                 android:layout_width="218dp"
                 android:layout_height="38dp"
                 android:gravity="center"
@@ -262,6 +262,35 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/baseline_arrow_right_alt_24" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnBackAcordou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:rotationY="180"
+                    app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:letterSpacing="0.05"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingRight="5dp"
+                    android:text="Voltar"/>
+
+
             </LinearLayout>
 
         </LinearLayout>
