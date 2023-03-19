@@ -52,5 +52,4 @@ class ToSleepTimeActivity : AppCompatActivity() {
             minutoDormiu.setText("")
         }
     }
-
 }

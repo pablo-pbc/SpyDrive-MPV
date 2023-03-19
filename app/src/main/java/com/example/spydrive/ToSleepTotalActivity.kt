@@ -1,6 +1,8 @@
 package com.example.spydrive
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
@@ -40,5 +42,14 @@ class ToSleepTotalActivity : AppCompatActivity() {
         resultadoHora.text = diferencaHorasStr.toString()
         resultadoMin.text = diferencaMinutosStr.toString()
 
+        fun onBackPressed() {
+            val intent = Intent(this, WakeUpTimeActivity::class.java)
+            startActivity(intent)
+        }
+
+        var backBtnTempoSono = findViewById<LinearLayout>(R.id.btnBackTempoSono)
+        backBtnTempoSono.setOnClickListener() {
+            onBackPressed()
+        }
     }
 }

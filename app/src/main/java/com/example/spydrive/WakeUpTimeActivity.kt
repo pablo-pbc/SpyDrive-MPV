@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalTime
 import java.util.*
 
+@Suppress("DEPRECATION")
 class WakeUpTimeActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -55,6 +56,15 @@ class WakeUpTimeActivity : AppCompatActivity() {
             minAcordou.setText("")
         }
 
+        fun onBackPressed() {
+            val intent = Intent(this, ToSleepTimeActivity::class.java)
+            startActivity(intent)
+        }
+
+        var backBtnAcordou = findViewById<LinearLayout>(R.id.btnBackAcordou)
+        backBtnAcordou.setOnClickListener() {
+            onBackPressed()
+        }
     }
 
 }

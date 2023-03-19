@@ -271,7 +271,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="20dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="onBackButtonClick">
 
                 <ImageView
                     android:layout_width="wrap_content"
