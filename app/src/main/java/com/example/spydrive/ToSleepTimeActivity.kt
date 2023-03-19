@@ -14,39 +14,31 @@ import java.time.LocalTime
 
 class ToSleepTimeActivity : AppCompatActivity() {
 
-    @SuppressLint("WrongViewCast")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_sleep_time)
 
-        var horaDormiuEditText = findViewById<EditText>(R.id.inputDormiuHr).text.toString();
-        var minutoDormiuEditText = findViewById<EditText>(R.id.inputDormiuMin).text.toString();
+        var sleepTime = findViewById<LinearLayout>(R.id.btnNextDormiu)
 
-        if (horaDormiuEditText.equals(""))
-        {
-            horaDormiuEditText = "0"
-        }
+        sleepTime.setOnClickListener() {
 
-        if (minutoDormiuEditText.equals(""))
-        {
-            minutoDormiuEditText = "0"
-        }
+            var horaDormiu = findViewById<EditText>(R.id.inputDormiuHr).text.toString();
+            var minutoDormiu = findViewById<EditText>(R.id.inputDormiuMin).text.toString();
 
-        val dormiuTime : LocalTime = createTimeWakeUp(horaDormiuEditText.toInt(), minutoDormiuEditText.toInt())
+            println(horaDormiu)
+            println(minutoDormiu)
 
-        println(dormiuTime.toString())
+            var horaDomiuInt : Int = horaDormiu.toInt()
+            var minutoDormiuInt : Int = minutoDormiu.toInt()
 
-        val sleepTime = findViewById<LinearLayout>(R.id.btnNextDormiu)
-        sleepTime.setOnClickListener {
+            val sleepTimeInMinutes = horaDomiuInt * 60 + minutoDormiuInt;
+
             val i = Intent(this, WakeUpTimeActivity::class.java)
+                .putExtra("sleepTimeInMinutes", sleepTimeInMinutes);
+
             startActivity(i)
         }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun createTimeWakeUp(hour : Int, minute : Int) : LocalTime {
-        return LocalTime.of(hour, minute)
     }
 
 }

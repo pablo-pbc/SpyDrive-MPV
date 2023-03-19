@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.time.LocalTime
-import java.util.Date
 
 class WakeUpTimeActivity : AppCompatActivity() {
 
@@ -17,30 +16,27 @@ class WakeUpTimeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wake_up_time)
 
-        var horaAcordouEditText = findViewById<EditText>(R.id.inputAcordouHr).text.toString()
-        var minAcordouEditText = findViewById<EditText>(R.id.inputAcordouMin).text.toString()
 
-        if (horaAcordouEditText.equals(""))
-        {
-            horaAcordouEditText = "0"
+        var btnContinue = findViewById<LinearLayout>(R.id.btnNextAcordou)
+
+        btnContinue.setOnClickListener() {
+
+            var horaAcordou = findViewById<EditText>(R.id.inputAcordouHr).text.toString()
+            var minAcordou = findViewById<EditText>(R.id.inputAcordouMin).text.toString()
+
+            println(horaAcordou)
+            println(minAcordou)
+
+            var horaDomiuInt : Int = horaAcordou.toInt()
+            var minutoDormiuInt : Int = minAcordou.toInt()
+
+            val sleepWakeUpInMinutes = horaDomiuInt * 60 + minutoDormiuInt;
+
+            val intent = Intent(this, ToSleepTotalActivity::class.java)
+                .putExtra("sleepWakeUpInMinutes", sleepWakeUpInMinutes);
+            startActivity(intent)
         }
 
-        if (minAcordouEditText.equals(""))
-        {
-            minAcordouEditText = "0"
-        }
-
-        val wakeUpTime : LocalTime = createTimeWakeUp(horaAcordouEditText.toInt(), minAcordouEditText.toInt())
-
-        val wakeUpTimeButton = findViewById<LinearLayout>(R.id.btnNextAcordou)
-        wakeUpTimeButton.setOnClickListener {
-            val i = Intent(this, ToSleepTotalActivity::class.java)
-            startActivity(i)
-        }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun createTimeWakeUp(hour : Int, minute : Int) : LocalTime {
-        return LocalTime.of(hour, minute)
-    }
 }
