@@ -21,10 +21,24 @@ class ToSleepTotalActivity : AppCompatActivity() {
         val diferencaHoras = diferencaMinutos / 60
         val diferencaMinutosRestantes = diferencaMinutos % 60
 
+        var diferencaHorasStr = diferencaHoras.toString()
+        var diferencaMinutosStr = diferencaMinutosRestantes.toString()
+
+        if (diferencaHorasStr.toString().length == 1)
+        {
+            diferencaHorasStr = "0" + diferencaHorasStr
+        }
+
+        if (diferencaMinutosStr.length == 1)
+        {
+            diferencaHorasStr = "0" + diferencaMinutosStr
+        }
+
         println(diferencaHoras)
         println(diferencaMinutosRestantes)
 
-        resultadoHora.setText(diferencaHoras.toInt())
+        resultadoHora.setText(diferencaHorasStr)
+        resultadoMin.setText(diferencaHorasStr)
 
 
     }
