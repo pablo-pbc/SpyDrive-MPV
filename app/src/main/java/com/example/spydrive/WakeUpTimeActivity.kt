@@ -20,26 +20,27 @@ class WakeUpTimeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wake_up_time)
 
-        var cancelBtnAcordou = findViewById<TextView>(R.id.btnCancelAcordou)
+        val btnContinue = findViewById<LinearLayout>(R.id.btnNextAcordou)
+        val cancelBtnAcordou = findViewById<TextView>(R.id.btnCancelAcordou)
+        val backBtnAcordou = findViewById<LinearLayout>(R.id.btnBackAcordou)
+        val textViewCurrentDate = findViewById<TextView>(R.id.DataHoje)
 
-        var textViewCurrentDate = findViewById<TextView>(R.id.DataHoje)
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale("pt", "BR"))
         val currentDate = dateFormat.format(calendar.time)
         textViewCurrentDate.text = currentDate
 
-        var btnContinue = findViewById<LinearLayout>(R.id.btnNextAcordou)
+        //Função para ir para a proxima tela
 
         btnContinue.setOnClickListener() {
 
-            var horaAcordou = findViewById<EditText>(R.id.inputAcordouHr).text.toString()
-            var minAcordou = findViewById<EditText>(R.id.inputAcordouMin).text.toString()
-
-            var horaDomiuInt : Int = horaAcordou.toInt()
-            var minutoDormiuInt : Int = minAcordou.toInt()
-
+            val horaAcordou = findViewById<EditText>(R.id.inputAcordouHr).text.toString()
+            val minAcordou = findViewById<EditText>(R.id.inputAcordouMin).text.toString()
+            val horaDomiuInt : Int = horaAcordou.toInt()
+            val minutoDormiuInt : Int = minAcordou.toInt()
             val sleepWakeUpInMinutes = (horaDomiuInt * 60) + minutoDormiuInt;
-            var sleepMinutes : Int = getIntent().getIntExtra("sleepTimeInMinutes", 0);
+
+            val sleepMinutes : Int = getIntent().getIntExtra("sleepTimeInMinutes", 0);
 
             val intent = Intent(this, ToSleepTotalActivity::class.java)
                 .putExtra("sleepWakeUpInMinutes", sleepWakeUpInMinutes)
@@ -47,21 +48,15 @@ class WakeUpTimeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Função do botão para limpar o valor dos EditText
         cancelBtnAcordou.setOnClickListener() {
-
-            var horaAcordou = findViewById<EditText>(R.id.inputAcordouHr)
-            var minAcordou = findViewById<EditText>(R.id.inputAcordouMin)
-
+            val horaAcordou = findViewById<EditText>(R.id.inputAcordouHr)
+            val minAcordou = findViewById<EditText>(R.id.inputAcordouMin)
             horaAcordou.setText("")
             minAcordou.setText("")
         }
 
-        fun onBackPressed() {
-            val intent = Intent(this, ToSleepTimeActivity::class.java)
-            startActivity(intent)
-        }
-
-        var backBtnAcordou = findViewById<LinearLayout>(R.id.btnBackAcordou)
+        //Atribuição do evento de click ao EditText para chamar a função (onBackPressed())
         backBtnAcordou.setOnClickListener() {
             onBackPressed()
         }
