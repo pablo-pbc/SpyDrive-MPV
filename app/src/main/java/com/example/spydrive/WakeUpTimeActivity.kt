@@ -3,6 +3,9 @@ package com.example.spydrive
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -28,10 +31,9 @@ class WakeUpTimeActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale("pt", "BR"))
         val currentDate = dateFormat.format(calendar.time)
-        textViewCurrentDate.text = currentDate
+        textViewCurrentDate.text = "Hoje é dia "+currentDate
 
         //Função para ir para a proxima tela
-
         btnContinue.setOnClickListener() {
 
             val horaAcordou = findViewById<EditText>(R.id.inputAcordouHr).text.toString()
@@ -47,6 +49,71 @@ class WakeUpTimeActivity : AppCompatActivity() {
                 .putExtra("sleepTimeInMinutes", sleepMinutes);
             startActivity(intent)
         }
+
+        //Inserindo filtro de inserção máxima de caracteres, no caso, no máximo 2 caracteres
+        val inputAcordouHr = findViewById<EditText>(R.id.inputAcordouHr)
+        val filtersHr = arrayOf<InputFilter>(InputFilter.LengthFilter(2))
+        inputAcordouHr.filters = filtersHr
+
+        // defina um InputFilter para permitir somente valores numéricos entre 0 e 23
+        val minValueHr = 0
+        val maxValueHr = 23
+
+        //Inserindo um função ao input de hora que acordou, para limitar o valor inserido pelo usuario
+        inputAcordouHr.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                // não é necessário implementar esse método
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // não é necessário implementar esse método
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    if (it.isNotEmpty()) {
+                        // se o valor de entrada não for um número válido, defina o valor do EditText para o valor mínimo
+                        val value = it.toString().toIntOrNull()
+                        if (value == null || value !in minValueHr..maxValueHr) {
+                            inputAcordouHr.setText(minValueHr.toString())
+                            inputAcordouHr.setSelection(inputAcordouHr.text.length)
+                        }
+                    }
+                }
+            }
+        })
+
+        val inputAcordouMin = findViewById<EditText>(R.id.inputAcordouMin)
+        val filtersMin = arrayOf<InputFilter>(InputFilter.LengthFilter(2))
+        inputAcordouMin.filters = filtersMin
+
+        // defina um InputFilter para permitir somente valores numéricos entre 0 e 23
+        val minValueMin = 0
+        val maxValueMin = 59
+
+        //Inserindo um função ao input do minuto que acordou, para limitar o valor inserido pelo usuario
+        inputAcordouMin.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                // não é necessário implementar esse método
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // não é necessário implementar esse método
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s?.let {
+                    if (it.isNotEmpty()) {
+                        // se o valor de entrada não for um número válido, defina o valor do EditText para o valor mínimo
+                        val value = it.toString().toIntOrNull()
+                        if (value == null || value !in minValueMin..maxValueMin) {
+                            inputAcordouMin.setText(minValueHr.toString())
+                            inputAcordouMin.setSelection(inputAcordouMin.text.length)
+                        }
+                    }
+                }
+            }
+        })
 
         //Função do botão para limpar o valor dos EditText
         cancelBtnAcordou.setOnClickListener() {

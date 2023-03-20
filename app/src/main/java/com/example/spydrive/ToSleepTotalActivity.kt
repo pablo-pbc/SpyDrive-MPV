@@ -27,15 +27,15 @@ class ToSleepTotalActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale("pt", "BR"))
         val currentDate = dateFormat.format(calendar.time)
-        textViewCurrentDate.text = currentDate
+        textViewCurrentDate.text = "Hoje é dia "+currentDate
 
         val sleepMinutes : Int = getIntent().getIntExtra("sleepTimeInMinutes", 0);
         val wakeUpMinutes : Int = getIntent().getIntExtra("sleepWakeUpInMinutes", 0);
 
-        var diferencaMinutos =  (wakeUpMinutes+(24*60)) - sleepMinutes
+        var diferencaMinutos =  (wakeUpMinutes) - sleepMinutes
 
         // Se a diferença for negativa, significa que o usuário dormiu depois de ter acordado (provavelmente trocou os valores dos EditTexts)
-        if (diferencaMinutos < 0) {
+        if (diferencaMinutos <= 0) {
             diferencaMinutos += 24 * 60
         }
 
