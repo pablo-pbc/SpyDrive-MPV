@@ -66,14 +66,14 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="28dp"
-            android:text="Vamos começar?"/>
+            android:text="Tudo pronto?"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="14dp"
-            android:text="Nos informe seu destino!"/>
+            android:text="Nos informe a duração da sua viagem!"/>
 
         <LinearLayout
             android:layout_width="360dp"

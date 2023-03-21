@@ -123,6 +123,7 @@
                     app:srcCompat="@drawable/relogio" />
 
                 <TextView
+                    android:id="@+id/tempoViagem"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#45474A"
@@ -133,6 +134,7 @@
                     android:text="1h 30min"/>
 
                 <TextView
+                    android:id="@+id/tempoAlarmeDisp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textColor="#45474A"
