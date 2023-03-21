@@ -240,7 +240,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/btnNextDormiu"
+                android:id="@+id/btnNextTempoViagem"
                 android:layout_width="218dp"
                 android:layout_height="38dp"
                 android:gravity="center"

@@ -76,24 +76,134 @@
             android:text="Nos informe seu destino!"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="360dp"
+            android:layout_height="216dp"
             android:layout_marginTop="44dp"
-            android:padding="15dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
             android:background="@drawable/rounded_input_time"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/locationGoal"
+            <TextView
+                android:id="@+id/DataHoje"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="time"
-                android:textAlignment="viewStart"
-                android:padding="10dp"
-                android:textSize="22dp"
-                android:background="@drawable/rounded_focus_input"
-                android:hint="Ex.: Rua esmeralda, 245" />
+                android:layout_height="16dp"
+                android:textSize="11dp"
+                android:letterSpacing="0.05"
+                android:textColor="#45474A"
+                android:text="17 de Janeiro de 2023"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <EditText
+                            android:id="@+id/inputTempoViagemHr"
+                            android:layout_width="96dp"
+                            android:layout_height="80dp"
+                            android:inputType="time"
+                            android:textAlignment="center"
+                            android:textSize="57dp"
+                            android:background="@drawable/rounded_focus_input"
+                            android:hint="00" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="12dp"
+                            android:textColor="#45474A"
+                            android:textAlignment="textStart"
+                            android:paddingLeft="5dp"
+                            android:text="Hora"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="57dp"
+                        android:textColor="#1B1C1D"
+                        android:textAlignment="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text=":"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/inputTempoViagemMin"
+                            android:layout_width="96dp"
+                            android:layout_height="80dp"
+                            android:inputType="time"
+                            android:textAlignment="center"
+                            android:textSize="57dp"
+                            android:background="@drawable/rounded_focus_input"
+                            android:hint="00" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="12dp"
+                            android:textColor="#45474A"
+                            android:textAlignment="textStart"
+                            android:paddingLeft="5dp"
+                            android:text="Minuto"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/relogioIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingRight="166dp"
+                    app:srcCompat="@drawable/relogio" />
+
+                <TextView
+                    android:id="@+id/btnCancelTempoViagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:letterSpacing="0.05"
+                    android:textColor="#40627B"
+                    android:textStyle="normal"
+                    android:gravity="center"
+                    android:paddingLeft="62dp"
+                    android:text="Cancelar"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
