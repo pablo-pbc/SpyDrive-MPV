@@ -42,10 +42,10 @@ class DestinyLocationActivity : AppCompatActivity() {
             } else {
                 horaTempoViagemInt = horaTempoViagemInt
             }
-            val sleepTimeInMinutes = (horaTempoViagemInt * 60) + minutoTempoViagemInt;
+            val tempoViagemEmMinutos = (horaTempoViagemInt * 60) + minutoTempoViagemInt;
 
-            val i = Intent(this, WakeUpTimeActivity::class.java)
-                .putExtra("sleepTimeInMinutes", sleepTimeInMinutes);
+            val i = Intent(this, TravelStatusActivity::class.java)
+                .putExtra("sleepTimeInMinutes", tempoViagemEmMinutos);
             startActivity(i)
         }
 
