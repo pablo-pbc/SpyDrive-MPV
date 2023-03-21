@@ -72,5 +72,13 @@ class ToSleepTotalActivity : AppCompatActivity() {
         backBtnTempoSono.setOnClickListener() {
             onBackPressed()
         }
+
+        val destinyLocation = findViewById<LinearLayout>(R.id.btnNextTempoSono)
+
+        destinyLocation.setOnClickListener() {
+            val i = Intent(this, DestinyLocationActivity::class.java)
+            startActivity(i)
+        }
+
     }
 }
