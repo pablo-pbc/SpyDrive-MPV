@@ -20,7 +20,7 @@ class DestinyLocationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_destiny_location)
 
         val cancelBtnDormiu = findViewById<TextView>(R.id.btnCancelTempoViagem)
-        val nextScreenTempoViagem = findViewById<LinearLayout>(R.id.btnNextTempoViagem)
+        val nextScreenTempoViagem = findViewById<LinearLayout>(R.id.btnNextComecarViagem)
         val textViewCurrentDate = findViewById<TextView>(R.id.DataHoje)
 
         val calendar = Calendar.getInstance()
@@ -45,7 +45,7 @@ class DestinyLocationActivity : AppCompatActivity() {
             val tempoViagemEmMinutos = (horaTempoViagemInt * 60) + minutoTempoViagemInt;
 
             val i = Intent(this, TravelStatusActivity::class.java)
-                .putExtra("sleepTimeInMinutes", tempoViagemEmMinutos);
+                .putExtra("tempoViagemEmMinutos", tempoViagemEmMinutos);
             startActivity(i)
         }
 
